@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Periodic Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      table-layout: fixed;
+    }
+    tr {
+      height: 50px;
+    }
+    td {
+      border: 0px solid transparent;
+      padding: 8px;
+      text-align: center;
+    }
+    td.element {
+      border: 2px solid #305098;
+      padding: 8px;
+      text-align: center;
+      font-weight: bold;
+    }
+    p.atomic-num {
+      position: absolute;
+      margin-top: -23px;
+      font-size: 14px;
+      margin-left: -6px;
+    }
+    p.atom-symbol {
+      position: absolute;
+      margin-top: -2px;
+      font-size: 20px;
+      margin-left: 4px;
+    }
+    p.upper-text {
+      position: absolute;
+      margin-top: -18px;
+      font-size: 15px;
+      margin-left: -4px;
+      text-align: center;
+    }
+    p.lower-text {
+      position: absolute;
+      margin-top: 2px;
+      font-size: 15px;
+      margin-left: 8px;
+      text-align: center;
+    }
+    #am {
+      background-color: #fce0b6;
+    }
+    #aem {
+      background-color: #ffcc7f;
+    }
+    #tm {
+      background-color: #d1c3eb;
+    }
+    #om {
+      background-color: #ffcdd4;
+    }
+    #on {
+      background-color: #ffab91;
+    }
+    #h {
+      background-color: #a6d5a8;
+    }
+    #ng {
+      background-color: #ffffff;
+    }
+    #ree {
+      background-color: #e4ef9c;
+    }
+    #ae {
+      background-color: #b0e7fd;
+    }
+    div.fbox {
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      margin-top: -10px;
+      border: 2px solid #305098;
+    }
+    p.fbox {
+      position: absolute;
+      margin-top: -10px;
+      margin-left: 25px;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body style="font-family: sans-serif;width: 1000px;">
+  <h2>Periodic table of the elements</h2>
+  <br><br>
+  <div style="
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+  ">
+    <!-- floating area -->
+    <div style="
+      position: absolute;
+      margin-top: -40px;
+      width: 500px;
+      margin-left: 135px;
+    ">
+      <table>
+        <!-- Row 1 -->
+        <tr style="height: 33px">
+          <td style="
+            text-align: left;
+            width: 37%;
+          ">
+            <div id="am" class="fbox"></div>
+            <p class="fbox">
+              Alkali metals
+            </p>
+          </td>
+          <td style="text-align: left;">
+            <div id="h" class="fbox"></div>
+            <p class="fbox">
+              Halogens
+            </p>
+          </td>
+        </tr>
+        <!-- Row 2 -->
+        <tr style="height: 33px;">
+          <td style="
+            text-align: left;
+            width: 37%;
+          ">
+            <div id="aem" class="fbox"></div>
+            <p class="fbox">
+              Alkaline-earth metals
+            </p>
+          </td>
+          <td style="text-align: left;">
+            <div id="ng" class="fbox"></div>
+            <p class="fbox">
+              Nobal gases
+            </p>
+          </td>
+        </tr>
+        <!-- Row 3 -->
+        <tr style="height: 33px">
+          <td style="
+            text-align: left;
+            width: 37%;
+          ">
+            <div id="tm" class="fbox"></div>
+            <p class="fbox">
+              Transition metals
+            </p>
+          </td>
+          <td style="text-align: left;">
+            <div id="ree" class="fbox"></div>
+            <p 
+              class="fbox"
+              style="
+                white-space: nowrap;
+                overflow: visible;
+                text-overflow: ellipsis;
+              "
+            >
+              Rare-earth elements (21,39,57-71)
+            </p>
+          </td>
+        </tr>
+        <!-- Row 4 -->
+        <tr style="height: 33px">
+          <td style="
+            text-align: left;
+            width: 37%;
+          ">
+            <div id="om" class="fbox"></div>
+            <p class="fbox">
+              Other metals
+            </p>
+          </td>
+          <td style="text-align: left;">
+            <p style="
+              position: absolute;
+              white-space: nowrap;
+              overflow: visible;
+              text-overflow: ellipsis;
+              margin-top: -20px;
+              margin-left: 25px;
+              font-size: 15px;
+            ">
+              and lanthanoid elements (57-71 only)
+            </p>
+          </td>
+        </tr>
+        <!-- Row 5 -->
+        <tr style="height: 33px">
+          <td style="
+            text-align: left;
+            width: 37%;
+          ">
+            <div id="on" class="fbox"></div>
+            <p class="fbox">
+              Other nonmetals
+            </p>
+          </td>
+          <td style="text-align: left;">
+            <div id="ae" class="fbox"></div>
+            <p class="fbox">
+              Actinoid elememts
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- Periodic Table -->
+    <table>
+      <tr>
+        <td style="width: 8px;">
+          <p style="
+            transform: rotate(270deg);
+            position: absolute;
+            margin-top: -10px;
+            margin-left: -20px;
+            text-align: center;
+          ">
+            period
+          </p>
+        </td>
+        <td>
+          <p class="upper-text">group</p>
+          <p class="lower-text">1*</p>
+        </td>
+        <td colspan="16"></td>
+        <td>
+          <p class="lower-text">18</p>
+        </td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td class="element" id="on">
+          <p class="atomic-num">1</p>
+          <p class="atom-symbol">&nbsp;H</p>
+        </td>
+        <td>
+          <p class="lower-text">&nbsp;2</p>
+        </td>
+        <td colspan="10"></td>
+        <td>
+          <p class="lower-text">13</p>
+        </td>
+        <td>
+          <p class="lower-text">14</p>
+        </td>
+        <td>
+          <p class="lower-text">15</p>
+        </td>
+        <td>
+          <p class="lower-text">16</p>
+        </td>       
+        <td>
+          <p class="lower-text">17</p>
+        </td>
+        <td class="element" id="ng">
+          <p class="atomic-num">2</p>
+          <p class="atom-symbol">He</p>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td class="element" id="am">
+          <p class="atomic-num">3</p>
+          <p class="atom-symbol">Li</p>
+        </td>
+        <td class="element" id="aem">
+          <p class="atomic-num">4</p>
+          <p class="atom-symbol">Be</p>
+        </td>
+        <td colspan="10"></td>
+        <td class="element" id="on">
+          <p class="atomic-num">5</p>
+          <p class="atom-symbol">&nbsp;B</p>
+        </td>
+        <td class="element" id="on">
+          <p class="atomic-num">6</p>
+          <p class="atom-symbol">&nbsp;C</p>
+        </td>
+        <td class="element" id="on">
+          <p class="atomic-num">7</p>
+          <p class="atom-symbol">&nbsp;N</p>
+        </td>
+        <td class="element" id="on">
+          <p class="atomic-num">8</p>
+          <p class="atom-symbol">&nbsp;O</p>
+        </td>
+        <td class="element" id="h">
+          <p class="atomic-num">9</p>
+          <p class="atom-symbol">&nbsp;F</p>
+        </td>
+        <td class="element" id="ng">
+          <p class="atomic-num">10</p>
+          <p class="atom-symbol">Ne</p>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td class="element" id="am">
+          <p class="atomic-num">11</p>
+          <p class="atom-symbol">Na</p>
+        </td>
+        <td class="element" id="aem">
+          <p class="atomic-num">12</p>
+          <p class="atom-symbol">Mg</p>
+        </td>
+        <td>
+          <p class="lower-text"p>&nbsp;3</p>
+        </td>
+        <td>
+          <p class="lower-text">&nbsp;4</p>
+        </td>
+        <td>
+          <p class="lower-text">&nbsp;5</p>
+        </td>
+        <td>
+          <p class="lower-text">&nbsp;6</p>
+        </td>
+        <td>
+          <p class="lower-text">&nbsp;7</p>
+        </td>
+        <td>
+          <p class="lower-text">&nbsp;8</p>
+        </td>
+        <td>
+          <p class="lower-text">&nbsp;9</p>
+        </td>
+        <td>
+          <p class="lower-text">10</p>
+        </td>
+        <td>
+          <p class="lower-text">11</p>
+        </td>
+        <td>
+          <p class="lower-text">12</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">13</p>
+          <p class="atom-symbol">Al</p>
+        </td>
+        <td class="element" id="on">
+          <p class="atomic-num">14</p>
+          <p class="atom-symbol">Si</p>
+        </td>
+        <td class="element" id="on">
+          <p class="atomic-num">15</p>
+          <p class="atom-symbol">&nbsp;P</p>
+        </td>
+        <td class="element" id="on">
+          <p class="atomic-num">16</p>
+          <p class="atom-symbol">&nbsp;S</p>
+        </td>
+        <td class="element" id="h">
+          <p class="atomic-num">17</p>
+          <p class="atom-symbol">Cl</p>
+        </td>
+        <td class="element" id="ng">
+          <p class="atomic-num">18</p>
+          <p class="atom-symbol">&nbsp;R</p>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="element" id="am">
+          <p class="atomic-num">19</p>
+          <p class="atom-symbol">&nbsp;K</p>
+        </td>
+        <td class="element" id="aem">
+          <p class="atomic-num">20</p>
+          <p class="atom-symbol">Ca</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num"p>21</p>
+          <p class="atom-symbol">Sc</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">22</p>
+          <p class="atom-symbol">Ti</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">23</p>
+          <p class="atom-symbol">&nbsp;V</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">24</p>
+          <p class="atom-symbol">Cr</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">25</p>
+          <p class="atom-symbol">Mn</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">26</p>
+          <p class="atom-symbol">Fe</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">27</p>
+          <p class="atom-symbol">Co</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">28</p>
+          <p class="atom-symbol">Ni</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">29</p>
+          <p class="atom-symbol">Cu</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">30</p>
+          <p class="atom-symbol">Zn</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">31</p>
+          <p class="atom-symbol">Ga</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">32</p>
+          <p class="atom-symbol">Ge</p>
+        </td>
+        <td class="element" id="on">
+          <p class="atomic-num">33</p>
+          <p class="atom-symbol">As</p>
+        </td>
+        <td class="element" id="on">
+          <p class="atomic-num">34</p>
+          <p class="atom-symbol">Se</p>
+        </td>
+        <td class="element" id="h">
+          <p class="atomic-num">35</p>
+          <p class="atom-symbol">Br</p>
+        </td>
+        <td class="element" id="ng">
+          <p class="atomic-num">36</p>
+          <p class="atom-symbol">Kr</p>
+        </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td class="element" id="am">
+          <p class="atomic-num">37</p>
+          <p class="atom-symbol">Rb</p>
+        </td>
+        <td class="element" id="aem">
+          <p class="atomic-num">38</p>
+          <p class="atom-symbol">Sr</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num"p>39</p>
+          <p class="atom-symbol">&nbsp;Y</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">40</p>
+          <p class="atom-symbol">Zr</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">41</p>
+          <p class="atom-symbol">Nb</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">42</p>
+          <p class="atom-symbol">Mo</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">43</p>
+          <p class="atom-symbol">Tc</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">44</p>
+          <p class="atom-symbol">Ru</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">45</p>
+          <p class="atom-symbol">Rh</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">46</p>
+          <p class="atom-symbol">Pd</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">47</p>
+          <p class="atom-symbol">Ag</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">48</p>
+          <p class="atom-symbol">Cd</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">49</p>
+          <p class="atom-symbol">In</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">50</p>
+          <p class="atom-symbol">Sn</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">51</p>
+          <p class="atom-symbol">Sb</p>
+        </td>
+        <td class="element" id="on">
+          <p class="atomic-num">52</p>
+          <p class="atom-symbol">Te</p>
+        </td>
+        <td class="element" id="h">
+          <p class="atomic-num">53</p>
+          <p class="atom-symbol">&nbsp;&nbsp;I</p>
+        </td>
+        <td class="element" id="ng">
+          <p class="atomic-num">54</p>
+          <p class="atom-symbol">Xe</p>
+        </td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td class="element" id="am">
+          <p class="atomic-num">55</p>
+          <p class="atom-symbol">Cs</p>
+        </td>
+        <td class="element" id="aem">
+          <p class="atomic-num">56</p>
+          <p class="atom-symbol">Ba</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num"p>57</p>
+          <p class="atom-symbol">La</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">72</p>
+          <p class="atom-symbol">Hf</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">73</p>
+          <p class="atom-symbol">Ta</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">74</p>
+          <p class="atom-symbol">&nbsp;W</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">75</p>
+          <p class="atom-symbol">Re</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">76</p>
+          <p class="atom-symbol">Os</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">77</p>
+          <p class="atom-symbol">Ir</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">78</p>
+          <p class="atom-symbol">Pt</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">79</p>
+          <p class="atom-symbol">Au</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">80</p>
+          <p class="atom-symbol">Hg</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">81</p>
+          <p class="atom-symbol">Tl</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">82</p>
+          <p class="atom-symbol">Pb</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">83</p>
+          <p class="atom-symbol">Bi</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">84</p>
+          <p class="atom-symbol">Po</p>
+        </td>
+        <td class="element" id="h">
+          <p class="atomic-num">85</p>
+          <p class="atom-symbol">At</p>
+        </td>
+        <td class="element" id="ng">
+          <p class="atomic-num">86</p>
+          <p class="atom-symbol">Rn</p>
+        </td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td class="element" id="am">
+          <p class="atomic-num">87</p>
+          <p class="atom-symbol">Fr</p>
+        </td>
+        <td class="element" id="aem">
+          <p class="atomic-num">88</p>
+          <p class="atom-symbol">Ra</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num"p>89</p>
+          <p class="atom-symbol">Ac</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">104</p>
+          <p class="atom-symbol">Rf</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">105</p>
+          <p class="atom-symbol">Db</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">106</p>
+          <p class="atom-symbol">Sg</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">107</p>
+          <p class="atom-symbol">Bh</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">108</p>
+          <p class="atom-symbol">Hs</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">109</p>
+          <p class="atom-symbol">Mt</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">110</p>
+          <p class="atom-symbol">Ds</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">111</p>
+          <p class="atom-symbol">Rg</p>
+        </td>
+        <td class="element" id="tm">
+          <p class="atomic-num">112</p>
+          <p class="atom-symbol">Cn</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">113</p>
+          <p class="atom-symbol">Nh</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">114</p>
+          <p class="atom-symbol">Fl</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">115</p>
+          <p class="atom-symbol">Mc</p>
+        </td>
+        <td class="element" id="om">
+          <p class="atomic-num">116</p>
+          <p class="atom-symbol">Lv</p>
+        </td>
+        <td class="element" id="h">
+          <p class="atomic-num">117</p>
+          <p class="atom-symbol">Ts</p>
+        </td>
+        <td class="element" id="ng">
+          <p class="atomic-num">118</p>
+          <p class="atom-symbol">Og</p>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <table>
+      <tr>
+        <td colspan="3">
+          <p style="
+            position: absolute;
+            margin-top: -13px;
+            margin-left: 15px;
+          ">
+            lanthanoid series
+          </p>
+        </td>
+        <td style="width: 8px;">6</td>
+        <td class="element" id="ree">
+          <p class="atomic-num">58</p>
+          <p class="atom-symbol">Ce</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num">59</p>
+          <p class="atom-symbol">Pr</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num">60</p>
+          <p class="atom-symbol">Nd</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num">61</p>
+          <p class="atom-symbol">Pm</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num">62</p>
+          <p class="atom-symbol">Sm</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num">63</p>
+          <p class="atom-symbol">Eu</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num">64</p>
+          <p class="atom-symbol">Gd</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num">65</p>
+          <p class="atom-symbol">Tb</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num">66</p>
+          <p class="atom-symbol">Dy</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num">67</p>
+          <p class="atom-symbol">Ho</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num">68</p>
+          <p class="atom-symbol">Er</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num">69</p>
+          <p class="atom-symbol">Tm</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num">70</p>
+          <p class="atom-symbol">Yb</p>
+        </td>
+        <td class="element" id="ree">
+          <p class="atomic-num">71</p>
+          <p class="atom-symbol">Lu</p>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <p style="
+            position: absolute;
+            margin-top: -13px;
+            margin-left: 35px;
+          ">
+            actinoid series
+          </p>
+        </td>
+        <td style="width: 8px;">7</td>
+        <td class="element" id="ae">
+          <p class="atomic-num">90</p>
+          <p class="atom-symbol">Th</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num">91</p>
+          <p class="atom-symbol">Pa</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num">92</p>
+          <p class="atom-symbol">&nbsp;U</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num">93</p>
+          <p class="atom-symbol">Np</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num">94</p>
+          <p class="atom-symbol">Pu</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num">95</p>
+          <p class="atom-symbol">Am</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num">96</p>
+          <p class="atom-symbol">Cm</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num">97</p>
+          <p class="atom-symbol">Bk</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num">98</p>
+          <p class="atom-symbol">Cf</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num">99</p>
+          <p class="atom-symbol">Es</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num">100</p>
+          <p class="atom-symbol">Fm</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num">101</p>
+          <p class="atom-symbol">Md</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num">102</p>
+          <p class="atom-symbol">No</p>
+        </td>
+        <td class="element" id="ae">
+          <p class="atomic-num">103</p>
+          <p class="atom-symbol">Lr</p>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  <div style="
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+  ">
+    <p>
+      *Numbering system adopted by the International Union of Pure and Applied Chemistry (IUPAC)
+    </p>
+    <p style="
+      position: relative;
+      text-align: right;
+      margin-top: -35px;
+    ">
+      © Encyclopædia Britannica, Inc.
+    </p>
+  </div>
+</body>
+</html>
